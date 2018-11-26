@@ -259,6 +259,10 @@ input[type=range]:focus::-ms-fill-upper {
 width:300; 
 height:150;	
 }
+/*----------------------------------------ImgTxtEstado-------------------------------------*/
+#estado{
+color: white;	
+}
 </style>
 
 
@@ -305,7 +309,7 @@ height:150;
     <br></br>
       <div id="gauge" class="a200x160px"></div>
       <div><img id="imgEstado" src="pictures/tanke.png"></div>
-      <div><h2><a id ="estado"><font color="white">VACIO</a></h2></div> 
+      <div><h2><a id ="estado">VACIO</a></h2></div> 
 
     
   </center></td>
@@ -461,12 +465,12 @@ document.getElementById("txtgrafica").style.opacity="0";
         
       // called when a message arrives
       function onMessageArrived(message) {
-        if (message.destinationName == '/' + usuario + '/' + 'nivel') { //ac· coloco el topic
+        if (message.destinationName == '/' + usuario + '/' + 'nivel') { //ac√° coloco el topic
             //document.getElementById("nivel").textContent = message.payloadString  + " %";
        g.refresh(message.payloadString);
        nivel= parseInt(message.payloadString);
         }
-        if (message.destinationName == '/' + usuario + '/' + 'estado') { //ac· coloco el topic
+        if (message.destinationName == '/' + usuario + '/' + 'estado') { //ac√° coloco el topic
             document.getElementById("estado").textContent = message.payloadString;
             if (message.payloadString == "VACIO"){
               document.getElementById("imgEstado").src = "pictures/tanke.png"
@@ -479,7 +483,7 @@ document.getElementById("txtgrafica").style.opacity="0";
             }
 
         }
-        if (message.destinationName == '/' + usuario + '/' + 'automatico') { //ac· coloco el topic
+        if (message.destinationName == '/' + usuario + '/' + 'automatico') { //ac√° coloco el topic
            // document.getElementById("salidaDigital").textContent = message.payloadString;
              estadoautomatico = message.payloadString;
         
@@ -494,12 +498,12 @@ document.getElementById("txtgrafica").style.opacity="0";
             
         }
 
-      if (message.destinationName == '/' + usuario + '/' + 'manual') { //ac· coloco el topic
+      if (message.destinationName == '/' + usuario + '/' + 'manual') { //ac√° coloco el topic
            // document.getElementById("salidaDigital").textContent = message.payloadString;
              estadomanual = message.payloadString;}
             
 
-        if (message.destinationName == '/' + usuario + '/' + 'porcentaje') { //ac· coloco el topic
+        if (message.destinationName == '/' + usuario + '/' + 'porcentaje') { //ac√° coloco el topic
             document.getElementById("porcentaje").textContent = message.payloadString;
             document.getElementById("led2").setAttribute("stop-color", "rgb(0, " + message.payloadString + ", 0)")
 
